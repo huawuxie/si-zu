@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/ziliao.css">
+    <!-- <script type="text/javascript" src="js/myUpload.js"></script> -->
+    <!-- <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script> -->
+    <!-- <script type="text/javascript" src="js/jquery.form.js"></script> -->
+</head>
+<body>
+    <div class="head">
+        <div class="gr">
+            <span>个人资料</span>
+        </div>
+        <div class="head-1">
+            <!-- 头像 -->
+            <div class="tx"  id="myUpload">
+                <img src="images/personal_03.png" alt="" >
+            </div>
+            <!-- 名字 -->
+            <div class="xm">
+                <input placeholder="请输入您的名字">
+            </div>
+            <!-- 时间 -->
+            <div class="sj">
+                <input placeholder="请输入您的手机号码">
+            </div>
+            <!-- 内容 -->
+            <div class="nr">
+                <textarea name="" id="" cols="30" rows="10" placeholder="想对他她暗恋对象的爱的表白"></textarea>
+            </div>
+            <!-- 保存 -->
+            <div class="bc">
+                <button>保存</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+var imgStr = "";
+	$("#myUpload").upload({uploadPath:'php/upload.php', isMulti:true,width:'30px',height:'30px',callback:function(msg){
+			imgStr=msg;
+			console.log(imgStr)
+        }
+	});
+</script>
