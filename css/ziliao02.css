@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: pink;
+    widows: 100%;
+}
+.head{
+    width: 100%;
+    height: 44rem;
+    overflow: hidden;
+}
+.gr{
+    width:100%;
+    height: 3.25rem;
+    background:rgb(247, 141, 141); 
+}
+.gr span{
+    position: relative;
+    left: 175px;
+    font-size: 25px;
+    top: 10px;
+    color: #fff; 
+}
+.head .tx{
+    width:360px;
+    height: 9.5rem;
+    background: #fff;
+    border-radius: 20px;
+    margin: 30px auto;
+}
+.head .tx .imga{
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+.head .tx .imgb{
+    position: relative;
+    top: 10px;
+    left: 115px;
+}
+.head .tx .imgc{
+    position: relative;
+    width: 70px;
+    height: 4.5rem;
+    border-radius: 50px;
+    top: 20px;
+    left: 40px;
+}
+.head .tx .imgd{
+    position: relative;
+    width: 70px;
+    height: 4.5rem;
+    border-radius: 50px;
+    top: 20px;
+    left: 165px;
+}
+.head .tx .imge{
+    position: relative;
+    width: 142px;
+    height: 3.25rem;
+    top: 2px;
+    left: -39px;
+}
+.head .zj img{
+    width: 180px;
+    height: 7rem;
+    position: relative;
+    left: 40px;
+}
+.head .anl{
+    width:360px;
+    height: 9.25rem;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+}
+.head .an{
+    width:360px;
+    height: 7.5rem;
+    background: #fff;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+.head .anl .imgf{
+    position: relative;
+    left: 45px;
+    top: 5px;
+}
+.head .an .imgg{
+    width: 320px;
+    height: 5rem;
+    position: relative;
+    top: 18px;
+    left: 18px;
+}
+.head .sj {
+    width: 355px;
+    /* height: 2.75rem; */
+    border-radius: 15px;
+    background:rgb(240, 104, 104);
+    margin: 80px auto;
+}
+.head .sj img{
+    position: relative;
+    left: 40px;
+    top: 5px;
+}
