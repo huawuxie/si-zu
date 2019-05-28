@@ -33,7 +33,7 @@
         $str1 = "数据更新成功！";
         $str2 = "数据更新失败！";
         $kid = $_POST["kid"];
-        $sql1 = "update data set data='{$username}'  where head={$kid}";
+        $sql1 = "update data set data talk='{$username}'  where head={$kid}";
         echo $sql1;
     }else{
         die("请选择操作方法");
