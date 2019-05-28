@@ -107,8 +107,23 @@
 			el: '.swiper-pagination',
 		},
 	});
+	function Code(){
+		var arr=new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+		var c='';
+		for(var i=0;i<4;i++){
+            var index=Math.floor(Math.random()*arr.length);
+             c+=arr[index];
+			// $('.math').text(c);
+			
+		}
+		alert(c)
+
+	}
+	// console.log(Code())
+	
 	$(".butt").click(function() {
-		alert(536569)
+		
+		Code()
 		
 	})
 	$("#username").blur(function(){
@@ -119,13 +134,7 @@
 			alert("你输入的手机号有误,请重新输入")
 		}
 	})
-	$("#yanzheng").blur(function(){
-		if($("#yanzheng").val()==536569) {
-			$(".yw").css({'display':'none'})
-		} else {
-			alert("验证码有误,请重新输入")
-		}
-	})
+	
 	
 	$('#logBtn').click(function() {
 		$.ajax({
