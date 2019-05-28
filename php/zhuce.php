@@ -16,7 +16,7 @@
     
     $kid = empty( $_GET["kid"] )?"null":$_GET["kid"];
     //执行SQL语句
-    $sql = "select head username from zhuce  where head={$kid}";
+    $sql = "select head talk from data  where head={$kid}";
     $result = mysqli_query($conn, $sql);
     
     
@@ -27,13 +27,13 @@
     if($action == "add"){
         $str1 = "数据添加成功！";
         $str2 = "数据添加失败！";
-        $sql1 = "insert into zhuce(username) value('$username')";
+        $sql1 = "insert into data(talk) value('$username')";
         echo $sql1;	
     }else if($action=="update" ){
         $str1 = "数据更新成功！";
         $str2 = "数据更新失败！";
         $kid = $_POST["kid"];
-        $sql1 = "update zhuce set username='{$username}'  where head={$kid}";
+        $sql1 = "update data set data='{$username}'  where head={$kid}";
         echo $sql1;
     }else{
         die("请选择操作方法");

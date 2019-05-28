@@ -72,7 +72,7 @@
 								<form action="./php/zhuce.php" method="GET">
 									<span>免费绑定手机，看看谁暗恋了自己</span>
 									<div class="phone">
-										<input type="text" name="username" placeholder="填写11位手机号码" id="phone" class="number" value="">
+										<input type="text" name="username" placeholder="填写11位手机号码" id="username" class="number" value="">
 										<input type="button" value="获取验证码" class="butt">
 									</div>
 									<div class="shows">
@@ -81,9 +81,9 @@
 									</div>
 									<span>请输入验证码</span>
 									<div class="yzm">
-										<input type="text" value="请填写手机验证码" class="nums">
+										<input type="text" id="yanzheng" placeholder="请填写手机验证码" class="nums">
 										<p class="yw" style="display: none">您输入的验证码有误</p>
-										<input type="button" value="登录" class="denglu" id="logBtn">
+										<input type="submit" value="登录" class="denglu" id="logBtn">
 										<span>输入手机号填写收到的验证码即可登录</span>
 									</div>
 								</form>
@@ -107,28 +107,36 @@
 			el: '.swiper-pagination',
 		},
 	});
-	var str=null
-	$(".butt").click(function(str) {
-		str=Math.floor(Math.random*9)
-		alert(str)
+	$(".butt").click(function() {
+		alert(536569)
+		
+	})
+	$("#username").blur(function(){
 		var reg = /^[1][3,4,5,7,8][0-9]{9}$/
-	var  phone=$("#phone")
-	if(reg.test($phone.val())) {
-		alert("争取")
-	} else {
-		alert("取")
-	}
+		if(reg.test($("#username").val())) {
+			$(".no").css({'display':'none'})
+		} else {
+			alert("你输入的手机号有误,请重新输入")
+		}
+	})
+	$("#yanzheng").blur(function(){
+		if($("#yanzheng").val()==536569) {
+			$(".yw").css({'display':'none'})
+		} else {
+			alert("验证码有误,请重新输入")
+		}
 	})
 	
 	$('#logBtn').click(function() {
 		$.ajax({
-			url: "./php/login.php",
+			url: "./php/zhuce.php",
 			data: {
 				action: 'add',
 				username: $('#username').val()
 			},
 			success: function(str) {
 				console.log(str);
+				window.location.href='html.html';
 				$('#username').val('');
 			}
 		})
