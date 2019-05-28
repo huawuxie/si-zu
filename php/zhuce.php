@@ -9,14 +9,14 @@
         die("连接失败！".mysqli_connect_error() );
     }
     //选择要操作的数据库
-    mysqli_select_db($conn, "nw");
+    mysqli_select_db($conn, "anlian");
     //设置读取数据库的编码，不然显示汉字为乱码
     mysqli_query($conn, "set names utf8");
     
     
     $kid = empty( $_GET["kid"] )?"null":$_GET["kid"];
     //执行SQL语句
-    $sql = "select head username from data  where head={$kid}";
+    $sql = "select head username from zhuce  where head={$kid}";
     $result = mysqli_query($conn, $sql);
     
     
@@ -27,13 +27,13 @@
     if($action == "add"){
         $str1 = "数据添加成功！";
         $str2 = "数据添加失败！";
-        $sql1 = "insert into data(username) value('$username')";
+        $sql1 = "insert into zhuce(username) value('$username')";
         echo $sql1;	
     }else if($action=="update" ){
         $str1 = "数据更新成功！";
         $str2 = "数据更新失败！";
         $kid = $_POST["kid"];
-        $sql1 = "update data set username='{$username}'  where head={$kid}";
+        $sql1 = "update zhuce set username='{$username}'  where head={$kid}";
         echo $sql1;
     }else{
         die("请选择操作方法");
@@ -48,6 +48,7 @@
     //var_dump( $result );
     if( $result ){
         echo "<script>alert('{$str1}');</script>";
+        echo "<script>window.location.href='./zhuce.html';</script>";
         //Refresh: 暂停时间
     }else{
         echo $str2.mysqli_error($conn);
