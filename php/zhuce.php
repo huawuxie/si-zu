@@ -48,7 +48,7 @@
     //var_dump( $result );
     if( $result ){
         echo "<script>alert('{$str1}');</script>";
-        echo "<script>window.location.href='./zhuce.html';</script>";
+        echo "<script>window.location.href='./html.html';</script>";
         //Refresh: 暂停时间
     }else{
         echo $str2.mysqli_error($conn);
