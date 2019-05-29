@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./css/new_file.css"/>
+</head>
+<body>
+	<div id="box">
+		<div id="to">
+			
+			<img src="./images/logo.png" alt="" class="inof" />
+			<p>主页</p>
+			<img src="./images/logo.png" alt="" />
+		</div>
+		<div id="kong">
+			<img src="./images/02.png"/ id="img">
+		</div>
+		<div id="iviperipus">
+			<div id="txmc">
+				<div id="tx"><a href="ziliao.html"><img src="images/girl-1.jpg" id="iimg"></a></div>
+				<p id="mc">iViperipus</p>
+			</div>
+			<ul id="ul">
+				<a href="###">
+					<li>
+						<img src="images/icon1.png"/>
+						<a href="html.html"><p>主页</p></a>
+					</li>
+				</a>
+				<a href="###">
+					<li>
+						<img src="images/icon2.png"/>
+						<a href="diary.html"><p>日记墙</p></a>
+					</li>
+				</a>
+				<a href="###">
+					<li>
+						<img src="images/icon3.png"/>
+						<a href="html.html"><p>关于我们</p></a>
+					</li>
+				</a>
+				<a href="###">
+					<li>
+						<img src="images/icon4.png"/>
+						<a href="ziliao.html"><p>我的信息</p></a>
+					</li>
+				</a>
+				<a href="###">
+					<li>
+						<img src="images/icon5.png"/>
+						<a href="zhuce.html"><p>退出登录</p></a>
+					</li>
+				</a>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/jquery.form.js"></script>
+<script src="./js/myUpload.js"></script>
+<script>
+	$('.inof').click(function(){
+		$('#iviperipus').animate({'left':'65%'});
+        $('#img').animate({'left':'65%'});
+	})
+	$('#kong').click(function(){
+		$('#iviperipus').animate({'left':'0'});
+        $('#img').animate({'left':'0'});
+	})
+</script>
