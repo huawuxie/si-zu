@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: pink;
+    widows: 100%;
+    height: 100%;
+}
+.head{
+    width: 100%;
+    height: 40rem;
+    overflow: hidden;
+}
+.gr{
+    width:100%;
+    height: 3.25rem;
+    background:rgb(247, 141, 141); 
+}
+.gr span{
+    position: relative;
+    left: 140px;
+    font-size: 25px;
+    top: 10px;
+    color: #fff; 
+}
+/* 头像 */
+.tx{
+    display:block;
+    width: 100px;
+    height: 5.5rem;
+    border-radius:50%;
+    background:#fff;
+    border:3px solid #fff;
+    position: relative;
+    margin: 55px auto;
+}
+.head .tx img{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100px;
+    height:5.5rem;
+    border-radius: 50%;
+}
+/* 名字 */
+.head .xm {
+    width: 355px;
+    height:3.375rem;
+    border-radius: 15px;
+    background: #fff;
+    margin: 0 auto;
+}
+.head .xm input{
+    position: relative;
+    width: 300px;
+    height: 1.75rem;
+    left: 25px;
+    top: 15px;
+    border:none;
+}
+/* 时间 */
+.head .sj {
+    width: 355px;
+    height: 3.375rem;
+    border-radius: 15px;
+    background: #fff;
+    margin: 10px auto;
+}
+.head .sj input{
+    position: relative;
+    width: 300px;
+    height: 1.75rem;
+    left: 25px;
+    top: 15px;
+    border:none;
+}
+/* 内容 */
+.head .nr {
+    width: 355px;
+    height: 5.75rem;
+    border-radius: 15px;
+    background: #fff;
+    margin: 10px auto;
+    border:#fff;
+}
+.head .nr input{
+    position: relative;
+    width: 355px;
+    height: 5.75rem;
+    border:none;
+    border-radius:15px;
+    line-height: 5.75rem;
+    font-size: 15px;
+}
+/* 保存 */
+.head .bc {
+    width: 355px;
+    height: 2.75rem;
+    border-radius: 15px;
+    background:rgb(247, 141, 141);
+    margin: 80px auto;
+}
+.head .bc button{
+    position: relative;
+    width: 355px;
+    height: 2.75rem;
+    left: 0px;
+    top: 0px;
+    border:none;
+    background:rgb(247, 141, 141);
+    color: #fff;
+    border-radius: 15px;
+}

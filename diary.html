@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>日记墙</title>
+	<link rel="stylesheet" href="css/m-common.css">
+	<link rel="stylesheet" type="text/css" href="css/diary.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/rem.js"></script>
+	<script src="js/rem.js"></script>
+</head>
+
+<body>
+	<div class="all">
+		<div class="topBanner">
+			<div class="click"><a href="html.html"><img src="images/logo.png" alt=""></a></div>
+			<span>日记墙</span>
+			<div id="add">
+				<a href="riji.html">
+					<img src="images/log2.png" alt="">
+				</a>	
+			</div>
+		</div>
+		<div class="big">
+			<div id="numb">
+				<!-- <div id="numbimg">
+				<img src="images/girl-1.jpg" alt=""></div>
+				<div id="numbcountes">
+					<p>用户名：</p>
+					<p id="ptime">时间</p>
+					<p>此处为留言内容</p>
+					<p><img src="images/bbbb.png" alt=""></p>
+				</div>  -->
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+	var phone=localStorage.getItem('username')
+	var name=''
+	var img=''
+	$.ajax({
+		url:'php/index.php?c=Login&a=querys',
+		type:'post',
+		data:{
+			phone:phone,
+		},
+		success:function (str) {
+			var str=JSON.parse(str)
+
+			img=str.data.img
+			name=str.data.name
+		}
+	})
+
+
+
+	var phonea=localStorage.getItem('username')
+    console.log(phonea)
+
+		$.ajax({
+			url: 'mvc/index.php?c=Login&a=query',
+			type: 'post',
+			data: {
+				id: 'id',
+			},
+			success: function (data) {
+				
+				var json = JSON.parse(data)
+				console.log(json)
+				// $.each(json, function (i, item) {
+					for (let index = 0; index < json.length; index++) {
+						var d = new Date().getTime();
+						var e = Math.ceil(d / 1000)
+						var f = e - json[index].time
+
+
+						var timer1 = json[index].time
+						var time = ((new Date().getTime() / 1000) - timer1)
+						// console.log(time)
+						var days = Math.floor(time / (24 * 3600))
+						var leave1 = time % (24 * 3600)
+						var hours = Math.floor(leave1 / (3600))
+						var leave2 = leave1 % (3600)
+						var minutes = Math.floor(leave2 / (60))
+						var leave3 = leave2 % (60)
+						var seconds = Math.round(leave3)
+						var cha;
+						if (days <= 3) {
+							if (days != 0) {
+								cha = days + '天前'
+							} else if (days == 0 && hours != 0) {
+								cha = hours + '小时前'
+							} else if (days == 0 && hours == 0 && minutes != 0) {
+								cha = minutes + '分钟前'
+							}
+						}
+						console.log(cha)
+					console.log(json[index])
+					var arr=[]
+					if(json[index].phone.indexOf(phonea)!=-1){
+						arr.push(json[index])
+					}
+					console.log(arr)
+					
+					for (let i = 0; i < arr.length; i++) {
+						$('#numb').append(`<div id="numbimg"><img src="${img}" alt=""></div>
+						<div id="numbcountes">
+							<p>${name}</p>
+							<p id="ptime">${cha}</p>
+							<p>${arr[i].countes}</p>	
+						<p><img src="${arr[i].img}" alt=""></p>
+						</div>`)
+						
+					}
+
+
+					
+
+
+
+					}
+					
+
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				// $('#numb').append(`<div id="numbimg"><img src="${img}" alt=""></div>
+				// <div id="numbcountes">
+				// 	<p>${name}</p>
+				// 	<p id="ptime">${cha}</p>
+				// 	<p>${item.countes}</p>	
+				// <p><img src="${item.img}" alt=""></p>
+				// </div>`)
+
+
+				// })
+
+			}
+		})
+	</script>
+	<script>
+		
+	</script>
+</body>
+
+</html>

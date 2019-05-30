@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Swiper demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="css/m-common.css">
+		<link rel="stylesheet" href="css/login.css">
+		<style>
+			html,
+			body {
+				position: relative;
+				height: 100%;
+			}
+			
+			body {
+				background: #eee;
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				color: #000;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+				/* Center slide text vertically */
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			}
+			
+			.swiper-slide img {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="images/bg1.png" alt=""></div>
+				<div class="swiper-slide"><img src="images/bg2.png" alt=""></div>
+				<div class="swiper-slide"><img src="images/bg3.png" alt=""></div>
+				<div class="swiper-slide">
+					<div class="all">
+						<div class="topBanner">
+							<span>绑定手机号</span>
+						</div>
+						<div class="con">
+							<div class="con_main">
+								<form>
+									<span>免费绑定手机，看看谁暗恋了自己</span>
+									<div class="phone">
+										<input type="text" name="username" placeholder="填写11位手机号码" id="username" class="number" value="">
+										<input type="button" value="获取验证码" class="butt">
+									</div>
+									<div class="shows">
+										<p style="display: none" class="yes">您的验证码正在发送到您的手机，请耐心等待...</p>
+										<p style="display: none" class="no">您输入的手机号有误，请重新输入!</p>
+									</div>
+									<span>请输入验证码</span>
+									<div class="yzm">
+										<input type="text" id="yanzheng" placeholder="请填写手机验证码" class="nums">
+										<p class="yw" style="display: none">您输入的验证码有误</p>
+										<input type="button" value="登录" class="denglu" id="logBtn">
+										
+										<span>输入手机号填写收到的验证码即可登录</span>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/rem.js"></script>
+<script src="js/swiper.jquery.js"></script>
+<script src="js/webuploader.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+	let swiper = new Swiper('.swiper-container', {
+		pagination: {
+			el: '.swiper-pagination',
+		},
+	});
+	function Code(){
+		let arr=new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+		let c='';
+		for(let i=0;i<4;i++){
+            let index=Math.floor(Math.random()*arr.length);
+             c+=arr[index];
+			// $('.math').text(c);
+			
+		}
+		alert(c)
+
+	}
+	// console.log(Code())
+	
+	$(".butt").click(function() {
+		
+		Code()
+		
+	})
+	
+	
+	
+// let phon='';
+	$("#username").blur(function(){
+		let reg = /^[1][3,4,5,7,8][0-9]{9}$/
+		if(reg.test($("#username").val())) {
+			$(".no").css({'display':'none'})
+		} else {
+			alert("你输入的手机号有误,请重新输入")
+		}
+
+		
+	// 	$.ajax({
+	// 		url:'php/index.php?c=Login&a=querys',
+	// 		type:'post',
+	// 		data:{
+	// 			phone:$('#username').val(),
+	// 		},
+	// 		success:function (str){
+	// 			let str=JSON.parse(str)
+	// 			console.log(str)
+	// 			phon=str.data.phone
+	// 		}
+	// 	})
+	// console.log(phon)	
+
+	})
+
+	$('#logBtn').click(function() {
+		$.ajax({
+			url: "php/zhuce.php",
+			data: {
+				action: 'add',
+				username: $('#username').val(),
+			},
+			success: function(str) {
+				console.log(str);
+				alert('登录成功');
+				window.location.href='html.html';
+				localStorage.username=$('#username').val();
+			}
+		})
+	})
+</script>
